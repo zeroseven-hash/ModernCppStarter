@@ -1,0 +1,24 @@
+{
+  "cmake.configureArgs": [
+  ],
+  "clangd.arguments": [
+       "--background-index",            /// 在后台自动分析文件（基于complie_commands)
+       "--compile-commands-dir=${workspaceFolder}/.vscode",                 /// 标记compelie_commands.json文件的目录位置
+       "-j=4",                         /// 同时开启的任务数量
+       "--query-driver=clang++.exe",  /// clang 路径，使用命令 which clang++ 获取的的路径
+       "--clang-tidy",                  /// clang-tidy功能
+       "--clang-tidy-checks=performance-*,bugprone-*",
+       "--all-scopes-completion",       /// 全局补全（会自动补充头文件）
+       "--completion-style=detailed",   /// 更详细的补全内容
+       "--header-insertion=never",       /// 补充头文件的形式
+       "--pch-storage=disk",            /// pch优化的位置
+       "--function-arg-placeholders=0"
+    ],
+  "cmake.preferredGenerators": ["Ninja"],
+  "cmake.copyCompileCommands": "${workspaceFolder}/.vscode/compile_commands.json",
+  "cmake.parallelJobs": 4,
+  "todo-tree.tree.scanMode": "current file",
+  "editor.tabSize": 2,
+  "clangd.trace": "",
+
+}

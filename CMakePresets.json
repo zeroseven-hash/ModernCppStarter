@@ -1,0 +1,121 @@
+{
+    "version": 3,
+    "configurePresets": [
+        {
+            "name": "windows-base",
+            "hidden": true,
+            "generator": "Ninja",
+            "binaryDir": "${sourceDir}/build/${presetName}",
+            "cacheVariables": {
+                "CMAKE_C_COMPILER": "cl.exe",
+                "CMAKE_CXX_COMPILER": "cl.exe",
+                "CMAKE_EXPORT_COMPILE_COMMANDS":"ON"
+            },
+            "architecture": {
+                "value": "x64",
+                "strategy": "external"
+            },
+            "condition": {
+                "type": "equals",
+                "lhs": "${hostSystemName}",
+                "rhs": "Windows"
+            }
+        },
+        {
+            "name": "Win-RelWithDebInfo",
+            "displayName": "Win-RelWithDebInfo",
+            "inherits": "windows-base",
+            "cacheVariables": {
+                "CMAKE_BUILD_TYPE": "RelWithDebInfo"
+            }
+        },
+        {
+            "name": "Win-Debug",
+            "displayName": "Win-Debug",
+            "inherits": "windows-base",
+            "cacheVariables": {
+                "CMAKE_BUILD_TYPE": "Debug"
+            }
+        },
+        {
+            "name": "Win-Release",
+            "displayName": "Win-Release",
+            "inherits": "windows-base",
+            "cacheVariables": {
+                "CMAKE_BUILD_TYPE": "Release"
+            }
+        },
+        {
+            "name":"android-base",
+            "hidden": true,
+            "generator": "Ninja",
+            "binaryDir": "${sourceDir}/build/${presetName}",
+            "cacheVariables": {
+                "CMAKE_EXPORT_COMPILE_COMMANDS":"ON",
+                "CMAKE_SYSTEM_NAME":"Android",
+                "CMAKE_SYSTEM_VERSION":"23",
+                "CMAKE_ANDROID_NDK":"$env{ANDROID_HOME}/ndk/26.1.10909125", 
+                "CMAKE_ANDROID_NDK_TOOLCHAIN_VERSION":"clang",
+                "ANDROID_NDK":"$env{ANDROID_HOME}/ndk/26.1.10909125",
+                "CMAK_ANDORID_STL_TYPE":"c++_static"
+            }
+        },
+        {
+            "name": "android-base-arm64-v8a",
+            "hidden": true,
+            "inherits":"android-base",
+            "cacheVariables": {
+                "CMAKE_ANDROID_ARCH_ABI":"arm64-v8a"
+            }
+        },
+        {
+            "name": "android-base-armeabi-v7a",
+            "hidden": true,
+            "inherits":"android-base",
+            "cacheVariables": {
+                "CMAKE_ANDROID_ARCH_ABI":"armeabi-v7a"
+            }
+        },
+        {
+            "name":"Andorid-Release-v7a",
+            "displayName": "Andorid-Release-v7a",
+            "inherits":"android-base-armeabi-v7a",
+            "cacheVariables":{
+                "CMAKE_BUILD_TYPE":"Release"
+            }  
+        },
+        {
+            "name":"Andorid-Release-arm-v8a",
+            "displayName": "Andorid-Release-arm-v8a",
+            "inherits":"android-base-arm64-v8a",
+            "cacheVariables":{
+                "CMAKE_BUILD_TYPE":"Release"
+            }  
+        }
+    ],
+    
+    "buildPresets": [
+        {
+            "name": "Win-Rel",
+            "displayName": "Win-Rel",
+            "configurePreset": "Win-Release",
+            "targets":"Greeter"
+        },
+        {
+            "name": "Win-RelWDI",
+            "displayName": "Win-RelWDI",
+            "configurePreset": "Win-RelWithDebInfo"
+        },
+        {
+            "name": "Android-Rel-v7a",
+            "displayName": "Android-Rel-v7a",
+            "configurePreset": "Andorid-Release-v7a"
+        },
+        {
+            "name": "Android-Rel-v8a",
+            "displayName": "Android-Rel-v8a",
+            "configurePreset": "AAndorid-Release-arm-v8a"
+        }
+    ]
+
+}
