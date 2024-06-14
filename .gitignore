@@ -1,5 +1,8 @@
 /build*
 /cpm_modules
 /.vscode/.cache
+/.vscode/compile_commands.json
 .DS_Store
 /install
+/bin
+/lib
