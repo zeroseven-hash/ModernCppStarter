@@ -3,14 +3,10 @@ name: Windows
 on:
   push:
     branches:
-      - master
-      - main
-      - Customize
+      - "*"
   pull_request:
     branches:
-      - master
-      - main
-      - Customize
+      - "*"
 
 env:
   CTEST_OUTPUT_ON_FAILURE: 1
@@ -27,6 +23,9 @@ jobs:
         with:
           path: "**/cpm_modules"
           key: ${{ github.workflow }}-cpm-modules-${{ hashFiles('**/CMakeLists.txt', '**/*.cmake') }}
+
+      - name: configure
+        run: cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Debug
 
       - name: build
         run: cmake --build build --config Debug -j4
