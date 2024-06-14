@@ -96,6 +96,11 @@
     
     "buildPresets": [
         {
+            "name": "Win-Debug",
+            "displayName": "Win-Debug",
+            "configurePreset": "Win-Debug"
+        },
+        {
             "name": "Win-Rel",
             "displayName": "Win-Rel",
             "configurePreset": "Win-Release",
