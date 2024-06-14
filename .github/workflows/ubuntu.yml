@@ -5,10 +5,12 @@ on:
     branches:
       - master
       - main
+      - Customize
   pull_request:
     branches:
       - master
       - main
+      - Customize
 
 env:
   CTEST_OUTPUT_ON_FAILURE: 1

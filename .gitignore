@@ -2,3 +2,4 @@
 /cpm_modules
 /.vscode/.cache
 .DS_Store
+/install
