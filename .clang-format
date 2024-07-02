@@ -1,16 +1,61 @@
 ---
-  BasedOnStyle: Google
-  AccessModifierOffset: '-2'
-  AlignTrailingComments: 'true'
-  AllowAllParametersOfDeclarationOnNextLine: 'false'
-  AlwaysBreakTemplateDeclarations: 'No'
-  BreakBeforeBraces: Attach
-  ColumnLimit: '100'
-  ConstructorInitializerAllOnOneLineOrOnePerLine: 'true'
-  IncludeBlocks: Regroup
-  IndentPPDirectives: AfterHash
-  IndentWidth: '2'
-  NamespaceIndentation: All
-  BreakBeforeBinaryOperators: All
-  BreakBeforeTernaryOperators: 'true'
+  BasedOnStyle: 'LLVM'
+  IndentWidth : 4
+  TabWidth: 4
+  AccessModifierOffset : -4
+  Language: 'Cpp'
+  ColumnLimit: 110
+  AlignArrayOfStructures : 'Left'
+  AlignAfterOpenBracket : 'BlockIndent'
+  AlignConsecutiveAssignments :
+    Enabled: true
+    AcrossEmptyLines: false
+    AcrossComments : false
+    AlignCompound : true
+    PadOperators : true
+  AlignEscapedNewlines : 'Right'
+  AlignOperands: 'AlignAfterOperator'
+  AlignTrailingComments : 
+    Kind: Always
+    OverEmptyLines: 2
+  AllowAllArgumentsOnNextLine : 'false'
+  AllowAllParametersOfDeclarationOnNextLine : 'false'
+  AllowShortBlocksOnASingleLine : 'Always'
+  AllowShortCaseLabelsOnASingleLine : 'true'
+  AllowShortFunctionsOnASingleLine : 'All'
+  AllowShortIfStatementsOnASingleLine : 'WithoutElse'
+  AllowShortLambdasOnASingleLine : 'All'
+  AllowShortLoopsOnASingleLine : 'true'
+  BinPackArguments: 'false'
+  BinPackParameters : 'false'
+  BitFieldColonSpacing : 'Both'
+  BreakBeforeBraces: 'Custom'
+  BraceWrapping:
+    AfterClass: 'true'
+    AfterCaseLabel: 'true'
+    AfterControlStatement: 'Always'
+    AfterEnum: 'true'
+    AfterFunction: 'true'
+    AfterNamespace: 'true'
+    AfterStruct: 'true'
+    AfterUnion: 'true'
+    AfterExternBlock: 'true'
+  SortIncludes: 'Never'
+  BreakBeforeConceptDeclarations: 'Always'
+  #BreakBeforeBraces : 'Attach'
+  BreakConstructorInitializers : 'AfterColon'
+  BreakStringLiterals : 'true'
+  EmptyLineBeforeAccessModifier : 'LogicalBlock'
+  PointerAlignment: 'Left'
+  QualifierAlignment: 'Left'
+  ReferenceAlignment : 'Left'
+  FixNamespaceComments : 'true'
+  SpaceAfterCStyleCast : 'true'
+  SpaceBeforeAssignmentOperators : 'true'
+  SpaceBeforeCpp11BracedList : 'true'
+  SpaceBeforeInheritanceColon : 'true'
+  SpaceBeforeParens : 'Never'
+  SpaceBeforeRangeBasedForLoopColon : 'true'
+  MaxEmptyLinesToKeep : 2
+  #IncludeBlocks :'Preserve'
 ...
